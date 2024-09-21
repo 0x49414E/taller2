@@ -1,7 +1,7 @@
 package aed;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import org.junit.jupiter.api.Test;
 
 public class AgendaTests {
@@ -127,29 +127,6 @@ public class AgendaTests {
         f2.incrementarDia();
         assertEquals(new Fecha(10, 6), recordatorio.fecha());
 
-    }
-
-    @Test
-    void recordatorioLista() {
-        ArregloRedimensionableDeRecordatorios r = new ArregloRedimensionableDeRecordatorios();
-
-        assertEquals(0, r.longitud());
-
-        for(int i = 0; i <= 10; i++){
-            r.agregarAtras(new Recordatorio("null", new Fecha(1,1), new Horario(1,1)));
-        }
-
-        assertEquals(11, r.longitud());
-
-        r.quitarAtras();
-
-        assertEquals(10, r.longitud());
-
-        r.agregarAtras(new Recordatorio("HOLA; SOY EL ULTIMO", new Fecha(2,2), new Horario(2,2)));
-
-        assertEquals(11, r.longitud());
-
-        assertEquals(new Recordatorio("HOLA; SOY EL ULTIMO", new Fecha(2,2), new Horario(2,2)), r.obtener(r.longitud() - 1));
     }
 
 

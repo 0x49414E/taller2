@@ -59,22 +59,14 @@ class ArregloRedimensionableDeRecordatorios {
     }
 
     public void quitarAtras() {
-        _longitud -= 1; 
-
-        Recordatorio[] nLista = new Recordatorio[_capacidad];
-
-        for(int i = 0; i < _longitud; i++){
-            nLista[i] = _lista[i];
+        if (_longitud > 0) {
+            _longitud--;
+            _lista[_longitud] = null;
         }
-
-        _lista = nLista;
     }
 
     public void modificarPosicion(int indice, Recordatorio valor) {
-        if(indice > _longitud) {
-            return;
-        }
-        else {
+        if (indice >= 0 && indice < _longitud) {
             _lista[indice] = valor;
         }
     }
@@ -86,7 +78,6 @@ class ArregloRedimensionableDeRecordatorios {
     }
 
     public ArregloRedimensionableDeRecordatorios copiar() {
-        // Implementar
-        return null;
+        return new ArregloRedimensionableDeRecordatorios(this);
     }
 }
